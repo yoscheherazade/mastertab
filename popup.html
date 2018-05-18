@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <title>MasterTab</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light">
+        <span class="navbar-brand mb-0 h1">MasterTab</span>
+    </nav>
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-6 m-auto main-container">
+                <div class="form-group" id="create-category-group">
+                    <div class="col">
+                        <label class="col-form-label" for="createNewCategory"> Create A New Category</label>
+                        <input type="text" class="form-control" placeholder="Category Name" id="createNewCategory">
+                        <button class="btn btn-success btn-block mt-2 mb-4" id="add-category-btn">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col">
+                        <label for="select-category">
+                            OR Select a Saved Category</label>
+                        <select class="form-control" id="select-category">
+                            <option disabled selected>Select one...</option>
+                        </select>
+                    </div>
+                    <div class="row mt-2">
+                        <button class="btn btn-warning mx-auto" id="saveOneTab">Save This Tab To Category
+                        </button>
+                        <button class="btn btn-primary mx-auto" id="saveAllTabs">Save All Open Tabs To Category
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Output area for dynamically added links -->
+        <div class="pt-2">
+            <h2 class="text-center pb-4">Saved Sessions</h2>
+            <ul id="output-links">
+            </ul>
+        </div>
+    </div>
+
+    <script src="./popup.js"></script>
+</body>
+
+</html>
