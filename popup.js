@@ -1,7 +1,3 @@
-function loadCategories() {
-    iterateLsKeys();
-};
-
 function iterateLsKeys() {
     let values = [],
         keys = Object.keys(localStorage);
@@ -48,12 +44,11 @@ function groupURLs(categoryName) {
             linksArray.push(value);
         }
     }
-    openTabsInNewWindow(categoryName, linksArray);
+    openTabsInNewWindow(linksArray);
 }
 
-function openTabsInNewWindow(categoryName, array) {
+function openTabsInNewWindow(array) {
     let linkArray = array;
-    let category = categoryName;
 
     // Open new window with all tabs in array
     chrome.windows.create({
@@ -66,7 +61,7 @@ function openTabsInNewWindow(categoryName, array) {
 Event Listeners 
 =================
 */
-document.addEventListener("DOMContentLoaded", loadCategories);
+document.addEventListener("DOMContentLoaded", iterateLsKeys);
 
 // Listen for category input
 let categoryName = document.getElementById('createNewCategory').value;
@@ -125,11 +120,8 @@ function addNewCategory() {
 }
 
 function deleteCategory(categoryName) {
-    // Set text as category name
     let name = categoryName;
-    // Delete category
     localStorage.removeItem(name);
-    //removeFromUI(name);
 }
 
 
@@ -177,9 +169,9 @@ function getAllWindowUrls() {
 
 
 /*
-================================
-  LOCAL STORAGE (Testing only)
-================================
+================
+  LOCAL STORAGE
+================
 */
 
 function storeCategory(categoryName, tabURL, tabName, tabKey) {
@@ -205,11 +197,10 @@ function storeCategory(categoryName, tabURL, tabName, tabKey) {
 
 }
 
-
 /*
-=============================
-        UI CHANGES
-=============================
+=================
+    UI CHANGES
+=================
 */
 
 // Show alert message
@@ -232,15 +223,13 @@ function showAlert(message, className) {
     //Timeout after 3 seconds
     setTimeout(() => {
         this.clearAlert();
-    }, 2000);
+    }, 4000);
 }
 
 // Clear alert message
 function clearAlert() {
     const currentAlert = document.querySelector('.alert');
-
     if (currentAlert) {
-        //clear current alert if there is one
         currentAlert.remove();
     }
 }
