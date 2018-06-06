@@ -30,7 +30,6 @@ li {
 .listed-category {
   min-width: 50%;
   font-weight: bold;
-  letter-spacing: 0.1rem;
 }
 
 .delete-btn {

@@ -183,7 +183,7 @@ function storeCategory(categoryName, tabURL, tabName, tabKey) {
         // push tab info into local storage value
         getStored.push(tabInfo);
         // reset local storage value
-        localStorage.setItem(`${categoryName}`, JSON.stringify(getStored))
+        localStorage.setItem(`${categoryName}`, JSON.stringify(getStored));
     } else {
         createListItems(categoryName);
         // if not, create arr and push tabInfo
@@ -194,7 +194,7 @@ function storeCategory(categoryName, tabURL, tabName, tabKey) {
             JSON.stringify(arr)
         );
     }
-
+    showAlert(`Saved successfully to ${categoryName}!`, 'alert alert-success');
 }
 
 /*
